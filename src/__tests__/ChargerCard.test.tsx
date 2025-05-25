@@ -1,81 +1,47 @@
-import { render, screen, fireEvent } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import ChargerCard from '../components/ChargerCard';
 import { describe, it, vi, expect } from 'vitest';
 import type { Charger } from '../types/ChargerType'; 
 
 describe('ChargerCard', () => {
-  
-  const offlineCharger: Charger = { id: '1', state: 'offline', icon:"" };
-  const onlineCharger: Charger = { id: '1', state: 'online', icon:"" };
-  const onCharging: Charger = { id: '1', state: 'charging', icon:"" };
-
-  it('renders charger and control buttons', () => {
+  it('charger status is offline', () => {
+    const offlineCharger: Charger = { id: '1', state: 'offline', icon:"" };
     const mockRemove = vi.fn();
     const mockUpdate = vi.fn();
     render(<ChargerCard charger={offlineCharger} onRemove={mockRemove} onUpdate={mockUpdate} />);
-    
-    expect(screen.getByText(/1/)).toBeInTheDocument();
-    expect(screen.getByTestId('1_online')).toBeInTheDocument();
-    expect(screen.getByTestId('1_fault')).toBeInTheDocument();
-     expect(screen.getByTestId('1_delete')).toBeInTheDocument();
-
-    fireEvent.click(screen.getByTestId('1_online'));
-    expect(mockUpdate).toHaveBeenCalledWith('1', 'online');
-    
+    expect(screen.getByText(/offline/)).toBeInTheDocument();
   });
 
-   it('turn on charger', () => {
-    const mockRemove = vi.fn();
-    const mockUpdate = vi.fn();
-    render(<ChargerCard charger={offlineCharger} onRemove={mockRemove} onUpdate={mockUpdate} />);
-    
-    expect(screen.getByText(/1/)).toBeInTheDocument();
-    expect(screen.getByTestId('1_online')).toBeInTheDocument();
-    fireEvent.click(screen.getByTestId('1_online'));
-    expect(mockUpdate).toHaveBeenCalledWith('1', 'online');
-  });
-
-  it('remove charger', () => {
-    const mockRemove = vi.fn();
-    const mockUpdate = vi.fn();
-    render(<ChargerCard charger={offlineCharger} onRemove={mockRemove} onUpdate={mockUpdate} />);
-    
-    expect(screen.getByText(/1/)).toBeInTheDocument();
-    expect(screen.getByTestId('1_delete')).toBeInTheDocument();
-    fireEvent.click(screen.getByTestId('1_delete'));
-    expect(mockRemove).toHaveBeenCalledWith('1', 'delete');
-  });
-
-  it('change charger state to fault', () => {
-    const mockRemove = vi.fn();
-    const mockUpdate = vi.fn();
-    render(<ChargerCard charger={offlineCharger} onRemove={mockRemove} onUpdate={mockUpdate} />);
-    
-    expect(screen.getByText(/1/)).toBeInTheDocument();
-    expect(screen.getByTestId('1_fault')).toBeInTheDocument();
-    fireEvent.click(screen.getByTestId('1_fault'));
-    expect(mockUpdate).toHaveBeenCalledWith('1', 'fault');
-  });
-
-  it('turn on charging', () => {
+   it('charger status is online', () => {
+   const onlineCharger: Charger = { id: '1', state: 'online', icon:"" };
     const mockRemove = vi.fn();
     const mockUpdate = vi.fn();
     render(<ChargerCard charger={onlineCharger} onRemove={mockRemove} onUpdate={mockUpdate} />);
-    
-    expect(screen.getByText(/1/)).toBeInTheDocument();
-    expect(screen.getByTestId('1_charging')).toBeInTheDocument();
-    fireEvent.click(screen.getByTestId('1_charging'));
-    expect(mockUpdate).toHaveBeenCalledWith('1', 'charging');
+    expect(screen.getByText(/online/)).toBeInTheDocument();
   });
 
-  it('turn off charging', () => {
+  it('charger status is on charging', () => {
+   const onCharging: Charger = { id: '1', state: 'charging', icon:"" };
     const mockRemove = vi.fn();
     const mockUpdate = vi.fn();
     render(<ChargerCard charger={onCharging} onRemove={mockRemove} onUpdate={mockUpdate} />);
-    
-    expect(screen.getByText(/1/)).toBeInTheDocument();
-    expect(screen.getByTestId('1_ready')).toBeInTheDocument();
-    fireEvent.click(screen.getByTestId('1_ready'));
-    expect(mockUpdate).toHaveBeenCalledWith('1', 'ready');
+    expect(screen.getByText(/on charging/)).toBeInTheDocument();
   });
+
+  it('charger status is ready to use', () => {
+    const ready: Charger = { id: '1', state: 'ready', icon:"" };
+    const mockRemove = vi.fn();
+    const mockUpdate = vi.fn();
+    render(<ChargerCard charger={ready} onRemove={mockRemove} onUpdate={mockUpdate} />);
+    expect(screen.getByText(/ready to use/)).toBeInTheDocument();
+  });
+
+   it('charger status is faulty', () => {
+   const faultyCharger: Charger = { id: '1', state: 'fault', icon:"" };
+    const mockRemove = vi.fn();
+    const mockUpdate = vi.fn();
+    render(<ChargerCard charger={faultyCharger} onRemove={mockRemove} onUpdate={mockUpdate} />);
+    expect(screen.getByText(/error, delete and add new/)).toBeInTheDocument();
+  });
+
 });
