@@ -18,7 +18,7 @@ export const useChargerStore = () => {
     }
     setChargers((prev) => [...prev, newCharger]);
   };
-
+   
   const removeCharger = (id: string) => {
     setChargers((prev) => prev.filter((c) => c.id !== id));
   };

@@ -2,6 +2,7 @@ import { type Charger } from "../types/ChargerType";
 import ChargerControls from "./ChargerControls";
 import { getShortName } from "../shared/utility";
 import Tooltip from "../shared/components/Tooltip";
+
 type Props = {
   charger: Charger;
   onRemove: (id: string) => void;

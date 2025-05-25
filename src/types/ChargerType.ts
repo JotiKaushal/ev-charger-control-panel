@@ -1,4 +1,4 @@
-export type ChargerState = 'offline' | 'online' | 'charging' | 'ready' | 'fault' | 'delete';
+export type ChargerState = 'offline' | 'online' | 'charging' | 'ready' | 'fault' | 'delete' ;
 
 export interface Charger {
   id: string;

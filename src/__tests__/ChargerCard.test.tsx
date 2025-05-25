@@ -4,6 +4,7 @@ import { describe, it, vi, expect } from 'vitest';
 import type { Charger } from '../types/ChargerType'; 
 
 describe('ChargerCard', () => {
+  
   const offlineCharger: Charger = { id: '1', state: 'offline', icon:"" };
   const onlineCharger: Charger = { id: '1', state: 'online', icon:"" };
   const onCharging: Charger = { id: '1', state: 'charging', icon:"" };

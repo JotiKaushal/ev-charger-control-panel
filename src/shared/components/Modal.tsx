@@ -13,6 +13,7 @@ export default function Modal({
   description,
   onClose,
 }: ModalProps) {
+  
   //below code to make modal accessible
   const closeButtonRef = useRef<HTMLButtonElement>(null);
   const lastFocusedElement = useRef<HTMLElement | null>(null);

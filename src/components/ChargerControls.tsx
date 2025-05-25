@@ -14,7 +14,6 @@ import {
   READY,
   DELETE,
 } from "../shared/constants";
-
 type Props = {
   charger: Charger;
   onUpdate: (id: string, state: Charger["state"]) => void;

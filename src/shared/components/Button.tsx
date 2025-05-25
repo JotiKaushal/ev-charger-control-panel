@@ -6,7 +6,7 @@ type ButtonProps = {
   status: ChargerState;
   onClick: (id: string, state: Charger["state"]) => void;
 };
-export default function Button({ id, status, icon, onClick }: ButtonProps) {
+export default function Button({ id, status, icon, onClick}: ButtonProps) {
   return (
     <div className="relative group inline-block">
       <button

@@ -4,6 +4,7 @@ type TooltipProps = {
   controls: boolean;
   status: ChargerState;
 };
+
 export default function Tooltip({ controls, status }: TooltipProps) {
   return (
     <div
