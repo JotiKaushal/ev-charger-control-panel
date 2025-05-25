@@ -23,18 +23,18 @@ Jest + React Testing Library for unit tests
 Node.js >= 18.x
 npm
 
-Installation
-# Clone the repo
+# Installation
+ Clone the repo
 git clone https://github.com/JotiKaushal/ev-charger-control-panel.git
 cd ev-charger-control-panel
 
-# Install dependencies
+ Install dependencies
 npm install
 
-# Run locally
+ Run locally
 npm run dev
 
-# Run test
+ Run test
 npm run test
 
 # Project structure
