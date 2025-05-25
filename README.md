@@ -36,21 +36,21 @@ Node.js >= 18.x
 npm
 
 # Installation
- Clone the repo
+ 1. Clone the repo
  
 git clone https://github.com/JotiKaushal/ev-charger-control-panel.git
 
 cd ev-charger-control-panel
 
- Install dependencies
+ 2. Install dependencies
  
  npm install
 
- Run locally
+ 3. Run locally
  
 npm run dev
 
- Run test
+ 4. Run test
  
 npm run test
 
