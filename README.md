@@ -4,37 +4,54 @@ It provides controls to add, remove, and update the status of simulated chargers
 
 # Features: 
 Add EV charger simulator (starts in the offline state)
+
 Remove charger
+
 Simulate charger commands (buttons):
+
 Turn On (→ online)
+
 Start Charging (→ charging)
+
 Stop Charging (→ ready)
+
 Simulate Fault (→ fault)
+
 Component local state is used (resets on browser refresh)
 
 # Tech Stack
 React (with TypeScript)
+
 Tailwind CSS for styling
+
 Local state management (using useState)
+
 Vite for fast build and development
+
 Jest + React Testing Library for unit tests
 
 # Prerequisites
 Node.js >= 18.x
+
 npm
 
 # Installation
  Clone the repo
+ 
 git clone https://github.com/JotiKaushal/ev-charger-control-panel.git
+
 cd ev-charger-control-panel
 
  Install dependencies
-npm install
+ 
+ npm install
 
  Run locally
+ 
 npm run dev
 
  Run test
+ 
 npm run test
 
 # Project structure
