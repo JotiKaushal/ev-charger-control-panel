@@ -1,34 +1,50 @@
-# INTRO: 
-A frontend interface for managing a list of EV (Electric Vehicle) charger simulators. This project implements a basic UI that allows users to manage EV charger simulators. 
-It provides controls to add, remove, and update the status of simulated chargers. The backend logic is not part of this. The UI operates on the component's local state.
+# EV Charger Control Panel UI
+A React + TypeScript frontend interface for managing a list of Electric Vehicle (EV) charger simulators. This interactive UI allows users to simulate charger lifecycles—adding, removing, and changing charger statuses.
 
 # Features: 
-Add EV charger simulator (starts in the offline state)
+ Add Charger – Adds a new charger (starts in offline state)
 
-Remove charger
+ Remove Charger – Deletes a charger from the list
 
-Simulate charger commands (buttons):
+Simulate Charger Commands:
 
-Turn On (→ online)
+ Turn On → online
 
-Start Charging (→ charging)
+ Start Charging → charging
 
-Stop Charging (→ ready)
+ Stop Charging → ready
 
-Simulate Fault (→ fault)
+ Simulate Fault → fault
 
-Component local state is used (resets on browser refresh)
+ # State & Error Handling Enhancements
+Persistent State Management via localStorage + Redux Toolkit
+
+Error Boundaries to gracefully catch and display runtime errors
+
+Loading & Error UI States – Scalable structure for future async backend integration
+
+Input Validation – Prevents invalid state transitions with user-friendly messages
 
 # Tech Stack
-React (with TypeScript)
+ React + TypeScript (strict mode enabled, no implicit any)
 
-Tailwind CSS for styling
+ Tailwind CSS – Mobile-first design & responsiveness tested
 
-Local state management (using useState)
+ Vite – Fast bundling & hot reloading
 
-Vite for fast build and development
+ vitest + jest + React Testing Library – Unit test coverage for UI components
 
-Jest + React Testing Library for unit tests
+ Redux Toolkit – Centralized and persistent state management
+
+ Code Splitting + Lazy Loading – Optimized performance for larger apps
+
+
+# Testing
+Tested state transitions
+Tested status updateon UI
+
+# Manual testing
+Manually tested UI responsiveness and mobile first design in chrome browser
 
 # Prerequisites
 Node.js >= 18.x
@@ -59,7 +75,10 @@ npm run test
 src/
 ├── components/                                # UI components
 ├── assets/                                    # Icons used in UI
-├── customHooks/useChargerStore.ts             # App state
+├── apis/                                      # mock apis to simulate api calls
+├── context/                                   # Error context to handle errors globally
+├── customHooks/                               # Hook to manage modal state
+├── store/                                     # redux toolkit store to manage app data
 ├── types/                                     # TypeScript interfaces and enums
 ├── shared/utility.ts                          # Utility functions
 ├── shared/components                          # Reusable components
