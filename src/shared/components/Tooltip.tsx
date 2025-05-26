@@ -2,7 +2,7 @@ import type { ChargerState } from "../../types/ChargerType";
 import { controlsTooltipText, statusToolttip } from "../constants";
 type TooltipProps = {
   controls: boolean;
-  status: ChargerState;
+  status?: ChargerState;
 };
 
 export default function Tooltip({ controls, status }: TooltipProps) {
@@ -13,8 +13,8 @@ export default function Tooltip({ controls, status }: TooltipProps) {
               transition-opacity duration-300
               bg-gray-800 text-white text-sm rounded px-2 py-1 whitespace-nowrap z-10"
     >
-      {controls && controlsTooltipText[status]}
-      {!controls && statusToolttip[status]}
+      {controls && status && controlsTooltipText[status]}
+      {!controls && status && statusToolttip[status]}
     </div>
   );
 }
