@@ -39,7 +39,7 @@ export default function App() {
 
   return (
     <>
-      <div className="max-w-4xl mx-auto my-2 h-lvh p-6 space-y-4 bg-gray-100">
+      <div className="w-full max-w-4xl mx-auto my-2 h-lvh p-6 space-y-4 lg:bg-gray-100">
         <h1 className="sm:text-lg md:text-xl lg:text-2xl font-bold text-center">EV Charger Simulator</h1>
        <div className="flex gap-10 w-full justify-between">
         <button
