@@ -1,10 +1,10 @@
 // mockApi.ts
 import { type Charger, type ChargerState } from "../types/ChargerType";
 import { OFFLINE, statusIcons } from "../shared/constants";
-const STORAGE_KEY = "chargers_data";
+import {STORAGE_KEY} from '../shared/constants'
 
 export const mockApi = {
-  saveChargers: (id: string, state: ChargerState): void => {
+  saveCharger: (id: string, state: ChargerState): void => {
     try {
       const data = localStorage.getItem(STORAGE_KEY);
       if (data !== null) {

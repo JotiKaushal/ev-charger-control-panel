@@ -20,7 +20,7 @@ vi.mock("react-redux", async () => {
 vi.mock("../apis/mockapis", () => ({
   mockApi: {
     deleteCharger: vi.fn(),
-    saveChargers: vi.fn(),
+    saveCharger: vi.fn(),
   },
 }));
 

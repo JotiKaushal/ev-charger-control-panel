@@ -5,6 +5,7 @@ import fault from '../assets/fault.png';
 import ready from '../assets/ready.png';
 import type { ChargerState } from '../types/ChargerType';
  
+export const STORAGE_KEY = "chargers_data";
 export const MAX_LIMIT = 10;
 export const ONLINE: ChargerState = "online"
 export const OFFLINE: ChargerState = "offline"

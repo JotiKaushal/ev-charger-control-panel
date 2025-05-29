@@ -26,7 +26,7 @@ export default function ChargerControls({ charger }: Props) {
   function updateCharger(id: string, state: ChargerState) {
     
     try {
-      mockApi.saveChargers(id, state);
+      mockApi.saveCharger(id, state);
       dispatch(updateChargerState({ id, state }));
     } catch (err) {
  if (err instanceof Error) setError(err.message);
