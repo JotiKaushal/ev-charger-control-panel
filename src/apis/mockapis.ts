@@ -21,8 +21,9 @@ export const mockApi = {
        throw new Error("Failed to save charger");
     }
   },
-  addNewCharger: (id: string) => {
+  addNewCharger: () => {
     try {
+      const id = crypto.randomUUID();
       const newCharger: Charger = {
         id: id,
         state: OFFLINE,
@@ -37,8 +38,9 @@ export const mockApi = {
           localStorage.setItem(STORAGE_KEY, JSON.stringify(result));
         }
       } else {
-        localStorage.setItem(STORAGE_KEY, JSON.stringify(newCharger));
+        localStorage.setItem(STORAGE_KEY, JSON.stringify([newCharger]));
       }
+      return newCharger;
     } catch (error) {
       console.error("Failed to add new charger to localStorage", error); // log error 
       throw new Error("Failed to add new charger");
@@ -64,12 +66,15 @@ export const mockApi = {
   fetchChargers: (): Charger[] => {
     try {
       const data = localStorage.getItem(STORAGE_KEY);
+      console.log(data);
+      
       if (!data) return [];
 
       const parsed: unknown = JSON.parse(data);
       if (Array.isArray(parsed)) {
         return parsed.filter(isValidCharger);
       }
+      return [];
     } catch (error) {
       console.error("Failed to fetch chargers from localStorage", error);
         throw new Error("Failed to fetch chargers");

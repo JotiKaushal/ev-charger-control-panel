@@ -17,4 +17,4 @@ export const statusIcons = {"offline": offline, "online": online, "charging":onC
 export const modalTitle= "LIMIT REACHED"
 export const modalDescription= "Limit reached, maximum 10 chargers are allowed."
 export const controlsTooltipText = {"offline": "click to turn off", "online": "click to turn on", "charging":"click to charge", "fault": "click to simulate fault", "ready": "click to stop charging", "delete": "click to delete"}
-export const statusToolttip = {"offline": "offline", "online": "online", "charging":"on charging", "fault": "error, delete and add new", "ready": "ready to use", "delete": ""}
+export const statusToolttip = {"offline": "offline", "online": "online", "charging":"on charging", "fault": "something went wrong, delete this charger and add a new one", "ready": "ready to use", "delete": ""}
