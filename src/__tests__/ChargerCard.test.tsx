@@ -32,7 +32,7 @@ describe('ChargerCard', () => {
    it('charger status is faulty', () => {
    const faultyCharger: Charger = { id: '1', state: 'fault', icon:"" };
     renderWithProviders(<ChargerCard charger={faultyCharger}/>);
-    expect(screen.getByText(/error, delete and add new/)).toBeInTheDocument();
+    expect(screen.getByText(/something went wrong, delete this charger and add a new one/)).toBeInTheDocument();
   });
 
 });
